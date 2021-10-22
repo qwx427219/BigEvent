@@ -1,0 +1,660 @@
+{
+	"info": {
+		"_postman_id": "d17f2db9-54a4-4e97-82ca-8da1216b7359",
+		"name": "api_server",
+		"description": "项目：黑马程序员-大事件后端项目\n\n接口文档：https://www.showdoc.com.cn/escook?page_id=3707158761215217",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "个人中心",
+			"item": [
+				{
+					"name": "/my/userinfo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjpudWxsLCJlbWFpbCI6bnVsbCwidXNlcl9waWMiOm51bGwsImlhdCI6MTYzNDE5NzIzMSwiZXhwIjoxNjM0MTk3NTMxfQ.Y6rP4EaKi8ep9R4l9pUCH-Fvg5mVe5fTNtfyqKGHud0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/userinfo",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"userinfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/my/userinfo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjpudWxsLCJlbWFpbCI6bnVsbCwidXNlcl9waWMiOm51bGwsImlhdCI6MTYzNDIwNDc3NSwiZXhwIjoxNjM0MjA1MDc1fQ.MJQaNBaTq5glwILI_V0VZ4KhfsTwCh9tGYX9KdDJAJk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "1@qq.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/userinfo",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"userinfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/my/updatepwd",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjpudWxsLCJlbWFpbCI6bnVsbCwidXNlcl9waWMiOm51bGwsImlhdCI6MTYzNDIwNzA1MCwiZXhwIjoxNjM0MjA3MzUwfQ.iaO9NWuy5m66KjqGiBRoqTJYlk-xi-2SBA7L0BiJj2Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "oldPwd",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "newPwd",
+									"value": "1234567",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/updatepwd",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"updatepwd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/my/update/avatar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjpudWxsLCJlbWFpbCI6bnVsbCwidXNlcl9waWMiOm51bGwsImlhdCI6MTYzNDIwODI4MywiZXhwIjoxNjM0MjA4NTgzfQ.e80Tnws-FJwdA-mkZwvXz0rWjhGtY7jXfjCQvk8sNbM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "avatar",
+									"value": "data:image/png;base64,VE9PTUFOWVNFQ1JFVFM=",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/update/avatar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"update",
+								"avatar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "文章管理",
+			"item": [
+				{
+					"name": "/my/article/add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzksInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjoi5aSn5biF5ZOlIiwiZW1haWwiOiIxNTY0NDY2MzU5QHFxLmNvbSIsInVzZXJfcGljIjpudWxsLCJpYXQiOjE2MzQ0ODA0ODcsImV4cCI6MTYzNDQ4MDc4N30.HQgzss8viAtbJwls8xlPufhN_rTeen2l9OO9vYd4OAg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "我和我的父辈",
+									"type": "text"
+								},
+								{
+									"key": "cate_id",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "吴京主演",
+									"type": "text"
+								},
+								{
+									"key": "cover_img",
+									"type": "file",
+									"src": "/D:/Pictures/woshishui.png"
+								},
+								{
+									"key": "state",
+									"value": "已发布",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/article/add",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"article",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/article/list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzksInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjoi5aSn5biF5ZOlIiwiZW1haWwiOiIxNTY0NDY2MzU5QHFxLmNvbSIsInVzZXJfcGljIjpudWxsLCJpYXQiOjE2MzQ0NzU4ODYsImV4cCI6MTYzNDQ3NjE4Nn0.WqlB1rXTLHUSAPJ8Qpdidcu9Xe8FVIFJqS7LqYYMFrI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/article/list?pagenum=0&pagesize=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"article",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pagenum",
+									"value": "0"
+								},
+								{
+									"key": "pagesize",
+									"value": "1"
+								},
+								{
+									"key": "cate_id",
+									"value": "null",
+									"disabled": true
+								},
+								{
+									"key": "state",
+									"value": "null",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/my/article/edit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzksInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjoi5aSn5biF5ZOlIiwiZW1haWwiOiIxNTY0NDY2MzU5QHFxLmNvbSIsInVzZXJfcGljIjpudWxsLCJpYXQiOjE2MzQ1Mzc1NzEsImV4cCI6MTYzNDUzNzg3MX0.j_yTRUDWNcrG0L9bwMssxzlgE9-4RVWY87fa_MD0h2g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "TEST EDIT",
+									"type": "text"
+								},
+								{
+									"key": "cate_id",
+									"value": "17",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "TEST EDIT",
+									"type": "text"
+								},
+								{
+									"key": "cover_img",
+									"type": "file",
+									"src": "/D:/Pictures/爱情呼叫转移.png"
+								},
+								{
+									"key": "state",
+									"value": "已发布",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/article/edit",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"article",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/my/article/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzksInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjoi5aSn5biF5ZOlIiwiZW1haWwiOiIxNTY0NDY2MzU5QHFxLmNvbSIsInVzZXJfcGljIjpudWxsLCJpYXQiOjE2MzQ1MzgyMDYsImV4cCI6MTYzNDUzODUwNn0.ZkpXSkQ3HqU-PsIOKsR9kEhasLGz_KIZ0EkgMcUIjuY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/article/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"article",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "文章类别管理",
+			"item": [
+				{
+					"name": "/my/article/cates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjpudWxsLCJlbWFpbCI6bnVsbCwidXNlcl9waWMiOm51bGwsImlhdCI6MTYzNDI4NDU3NywiZXhwIjoxNjM0Mjg0ODc3fQ.VX2J9pTXVCpOX8Xbw9tvW5G-d9TSQ9PYs6AXRlNHUhI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/article/cates",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"article",
+								"cates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/my/article/addcates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjpudWxsLCJlbWFpbCI6bnVsbCwidXNlcl9waWMiOm51bGwsImlhdCI6MTYzNDI3MDQyNywiZXhwIjoxNjM0MjcwNzI3fQ.YN4kox_6rQQqb-rDDRAgmeeDb1g7prGXEFp9dbz9VIY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "军事1",
+									"type": "text"
+								},
+								{
+									"key": "alias",
+									"value": "JunShi1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/article/addcates",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"article",
+								"addcates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/my/article/deletecate/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjpudWxsLCJlbWFpbCI6bnVsbCwidXNlcl9waWMiOm51bGwsImlhdCI6MTYzNDI3MTYyMCwiZXhwIjoxNjM0MjcxOTIwfQ.CawU4z1RygAT_wctJ8TJRn8wu2qgFkgAu_uihiex7fk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/article/deletecate/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"article",
+								"deletecate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/my/article/cates/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjpudWxsLCJlbWFpbCI6bnVsbCwidXNlcl9waWMiOm51bGwsImlhdCI6MTYzNDI3MjUxNSwiZXhwIjoxNjM0MjcyODE1fQ.uL6-hr_Tlk31XYEPbD0iN76HbfrQynfYUaiHVQZIdUY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/article/cates/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"article",
+								"cates",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/my/article/updatecate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInVzZXJuYW1lIjoicWZjIiwicGFzc3dvcmQiOm51bGwsIm5pY2tuYW1lIjpudWxsLCJlbWFpbCI6bnVsbCwidXNlcl9waWMiOm51bGwsImlhdCI6MTYzNDI4NDU3NywiZXhwIjoxNjM0Mjg0ODc3fQ.VX2J9pTXVCpOX8Xbw9tvW5G-d9TSQ9PYs6AXRlNHUhI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "16",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "爱国1",
+									"type": "text"
+								},
+								{
+									"key": "alias",
+									"value": "AiGuo1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3007/my/article/updatecate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"my",
+								"article",
+								"updatecate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "登录注册",
+			"item": [
+				{
+					"name": "/api/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "1231",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3007/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/reguser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3007/api/reguser",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3007",
+							"path": [
+								"api",
+								"reguser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
