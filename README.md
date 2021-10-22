@@ -14,5 +14,9 @@
 前端在login后将后端的jwt字符串存储在了localStorage中，退出登录时，会自动清除localStorage中的token
 前端监听了ajax请求，在/web/assets/js/ajaxPre.js中，对于/my请求默认填充Authorization请求头字段，保证身份认证，若身份认证失败自动跳转到登录页面
                                                   对于所有的ajax请求url参数都自动拼接了http://127.0.0.1:3007前缀
+                                                  
+数据库是mysql，只有三张表，en_user、en_articles、en_article_cates
+
+Postman后端接口调测工程：api_server.postman_collection.json
 
 更多详情请见 https://blog.csdn.net/qfc_128220/article/details/120828502?spm=1001.2014.3001.5501
