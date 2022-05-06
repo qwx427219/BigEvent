@@ -16,6 +16,7 @@
                                                   对于所有的ajax请求url参数都自动拼接了http://127.0.0.1:3007前缀
                                                   
 数据库是mysql，只有三张表，en_user、en_articles、en_article_cates
+这里需要注意下：我这里三张表的名字和黑马刘老师的表名不一样，刘老师的是ev开头，我的是en开头的，纯属于手误造成的，后期也不方便改，大家自建数据库时注意下就行。
 
 Postman后端接口调测工程：api_server.postman_collection.json
 
