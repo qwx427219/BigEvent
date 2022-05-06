@@ -3,7 +3,7 @@
 
 该项目代码整合了前端和后端，前端代码在/web目录下，其他目录代码都是后端代码
 
-后端代码没有提交node_modules文件夹，若要使用请先npm init
+后端代码没有提交node_modules文件夹，若要使用请先npm install
 
 后端关于mysql连接的配置在 /db/index.js中，默认连接数据库名称my_db_01, 数据库用户root,数据库密码111111
 后端关于jwt字符串有效期配置在 /config.js中，默认8h有效期
