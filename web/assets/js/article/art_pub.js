@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     var id = getUrlParam('id')
 
     initCate()
@@ -7,8 +7,9 @@ $(function() {
     function initCate() {
         $.ajax({
             method: 'GET',
-            url: '/my/article/cates',
-            success: function(res) {
+            // bugfix:这里url前缀定义的不好，重新定义，和/my/article区别
+            url: '/my/artcate/cates',
+            success: function (res) {
                 if (res.status !== 0) {
                     return layui.layer.msg(res.msg)
                 }
@@ -36,12 +37,12 @@ $(function() {
     $image.cropper(options);
 
     /* 绑定选择封面按钮 和 上传文件表单控件 */
-    $('#btnChooseImage').on('click', function(e) {
+    $('#btnChooseImage').on('click', function (e) {
         $('#coverFile').trigger('click')
     })
 
     /* 更换裁剪图片 */
-    $('#coverFile').on('change', function(e) {
+    $('#coverFile').on('change', function (e) {
         var files = e.target.files
 
         if (files.length === 0) {
@@ -55,11 +56,11 @@ $(function() {
 
     var art_state = '已发布'
 
-    $('#btnSave').on('click', function(e) {
+    $('#btnSave').on('click', function (e) {
         art_state = '草稿'
     })
 
-    $('#form-pub').on('submit', function(e) {
+    $('#form-pub').on('submit', function (e) {
         e.preventDefault()
 
         var fd = new FormData($(this)[0])
@@ -70,7 +71,7 @@ $(function() {
             // 创建一个画布
             width: 400,
             height: 200
-        }).toBlob(function(blob) { // 将裁剪图片变为文件blob后的回调函数
+        }).toBlob(function (blob) { // 将裁剪图片变为文件blob后的回调函数
             fd.append('cover_img', blob)
 
             if (id) {
@@ -95,7 +96,7 @@ $(function() {
             */
             contentType: false,
             processData: false,
-            success: function(res) {
+            success: function (res) {
                 layui.layer.msg(res.msg)
                 if (res.status !== 0) {
                     return
@@ -112,7 +113,7 @@ $(function() {
         $.ajax({
             method: 'GET',
             url: `/my/article/${id}`,
-            success: function(res) {
+            success: function (res) {
                 if (res.status !== 0) {
                     return layui.layer.msg(res.msg)
                 }

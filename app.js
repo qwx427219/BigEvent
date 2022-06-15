@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }))
 
 // 封装res.send函数为cc函数，并设置为全局可用
 app.use((req, res, next) => {
-    res.cc = function(err, status = 1) {
+    res.cc = function (err, status = 1) {
         res.send({
             status,
             msg: err instanceof Error ? err.message : err
@@ -39,7 +39,8 @@ const userinfoRouter = require('./router/userinfo')
 app.use('/my', userinfoRouter)
 
 const artCateRouter = require('./router/artcate')
-app.use('/my/article', artCateRouter)
+// bugfix:这里url前缀定义的不好，重新定义，和/my/article区别
+app.use('/my/artcate', artCateRouter)
 
 const articleRouter = require('./router/article')
 app.use('/my/article', articleRouter)

@@ -1,9 +1,10 @@
-$(function() {
+$(function () {
     function initArtCateList() {
         $.ajax({
             method: 'GET',
-            url: '/my/article/cates',
-            success: function(res) {
+            // bugfix:这里url前缀定义的不好，重新定义，和/my/article区别
+            url: '/my/artcate/cates',
+            success: function (res) {
                 if (res.status !== 0) {
                     return layui.layer.msg(res.msg)
                 }
@@ -18,7 +19,7 @@ $(function() {
     initArtCateList()
 
     var indexAdd = null
-    $('.btnAddCate').on('click', function() {
+    $('.btnAddCate').on('click', function () {
         indexAdd = layui.layer.open({
             type: 1,
             title: '添加文章分类',
@@ -27,14 +28,14 @@ $(function() {
         })
     })
 
-    $('body').on('submit', '#form-add', function(e) {
+    $('body').on('submit', '#form-add', function (e) {
         e.preventDefault()
 
         $.ajax({
             method: 'POST',
-            url: '/my/article/addcates',
+            url: '/my/artcate/addcates',
             data: $(this).serialize(),
-            success: function(res) {
+            success: function (res) {
                 if (res.status !== 0) {
                     return layui.layer.msg(res.msg)
                 }
@@ -45,7 +46,7 @@ $(function() {
     })
 
     var indexEdit = null
-    $('tbody').on('click', '.btnEditCate', function(e) {
+    $('tbody').on('click', '.btnEditCate', function (e) {
         indexEdit = layui.layer.open({
             type: 1,
             title: '修改文章分类',
@@ -59,14 +60,14 @@ $(function() {
         $('#form-edit [name=id]').attr('value', $(this).attr('data-id'))
     })
 
-    $('body').on('submit', '#form-edit', function(e) {
+    $('body').on('submit', '#form-edit', function (e) {
         e.preventDefault()
 
         $.ajax({
             method: 'POST',
-            url: '/my/article/updatecate',
+            url: '/my/artcate/updatecate',
             data: $(this).serialize(),
-            success: function(res) {
+            success: function (res) {
                 if (res.status !== 0) {
                     return layui.layer.msg(res.msg)
                 }
@@ -77,14 +78,14 @@ $(function() {
         })
     })
 
-    $('tbody').on('click', '.btnDelCate', function(e) {
+    $('tbody').on('click', '.btnDelCate', function (e) {
         var id = $(this).attr('data-id')
 
-        layui.layer.confirm('确认删除?', { icon: 3, title: '提示' }, function(index) {
+        layui.layer.confirm('确认删除?', { icon: 3, title: '提示' }, function (index) {
             $.ajax({
                 method: 'GET',
-                url: `/my/article/deletecate/${id}`,
-                success: function(res) {
+                url: `/my/artcate/deletecate/${id}`,
+                success: function (res) {
                     layui.layer.msg(res.msg)
 
                     if (res.status !== 0) {

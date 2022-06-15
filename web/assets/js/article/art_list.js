@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     var query = {
         pagenum: 1,
         pagesize: 5
@@ -7,7 +7,7 @@ $(function() {
     initArticleList()
     initFilter()
 
-    template.defaults.imports.dateFormat = function(date) {
+    template.defaults.imports.dateFormat = function (date) {
         var dt = new Date(date)
 
         var y = dt.getFullYear()
@@ -30,7 +30,7 @@ $(function() {
             method: 'GET',
             url: '/my/article/list',
             data: query,
-            success: function(res) {
+            success: function (res) {
                 if (res.status !== 0) {
                     return layui.layer.msg(res.msg)
                 }
@@ -46,8 +46,9 @@ $(function() {
     function initFilter() {
         $.ajax({
             method: 'GET',
-            url: '/my/article/cates',
-            success: function(res) {
+            // bugfix:这里url前缀定义的不好，重新定义，和/my/article区别
+            url: '/my/artcate/cates',
+            success: function (res) {
                 if (res.status !== 0) {
                     return layui.layer.msg(res.msg)
                 }
@@ -59,7 +60,7 @@ $(function() {
         })
     }
 
-    $('#form-filter').on('submit', function(e) {
+    $('#form-filter').on('submit', function (e) {
         e.preventDefault()
 
         var cate_id = $('[name=cate_id]').val()
@@ -88,7 +89,7 @@ $(function() {
             curr: query.pagenum,
             layout: ['count', 'limit', 'prev', 'page', 'next', 'skip'],
             limits: [2, 3, 5, 10],
-            jump: function(obj, first) {
+            jump: function (obj, first) {
                 query.pagenum = obj.curr
                 query.pagesize = obj.limit
 
@@ -106,7 +107,7 @@ $(function() {
         })
     }
 
-    $('tbody').on('click', '.btnDelArticle', function(e) {
+    $('tbody').on('click', '.btnDelArticle', function (e) {
         /* 注意：为什么给文章列表按钮定义时使用class，而不是id？
             因为每条文章列表后面的删除，编辑按钮都是同一个template模板产生的，
             所以如果使用id的话，就导致所有删除，编辑的按钮的id都相同，会产生id唯一性错误
@@ -116,11 +117,11 @@ $(function() {
         var len = $('.btnDelArticle').length
         var id = $(this).attr('data-id')
 
-        layui.layer.confirm('确认删除?', { icon: 3, title: '提示' }, function(index) {
+        layui.layer.confirm('确认删除?', { icon: 3, title: '提示' }, function (index) {
             $.ajax({
                 method: 'GET',
                 url: `/my/article/delete/${id}`,
-                success: function(res) {
+                success: function (res) {
                     if (res.status !== 0) {
                         return layui.layer.msg(res.msg)
                     }
@@ -136,7 +137,7 @@ $(function() {
         })
     })
 
-    $('tbody').on('click', '.btnEditArticle', function(e) {
+    $('tbody').on('click', '.btnEditArticle', function (e) {
         var id = $(this).attr('data-id')
         location.href = `/article/art_pub.html?id=${id}`
     })
