@@ -46,11 +46,12 @@ exports.listArticle = async (req, res) => {
     }
 
     // bugfix: 之前这里没有添加过滤条件 state和cate_id，导致 文章列表的分页pageBox中查询总数不正确
-    const countSql = 'select count(*) as num from en_articles where is_delete = 0 and state = ifnull(?,state) and cate_id = ifnull(?,id)'
+    const countSql = 'select count(*) as num from en_articles where is_delete = 0 and state = ifnull(?,state) and cate_id = ifnull(?,cate_id)'
     let total = null
     try {
         let [{ num }] = await db.queryByPromisify(countSql, [req.query.state || null, req.query.cate_id || null])
         total = num
+        console.log(total)
     } catch (e) {
         return res.cc(e)
     }
