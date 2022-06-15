@@ -1,7 +1,7 @@
 const db = require('../db/index')
 const path = require('path')
 
-exports.addArticle = async(req, res) => {
+exports.addArticle = async (req, res) => {
     // 手动校验上传的文件
     if (!req.file || req.file.fieldname !== 'cover_img') {
         return res.cc('文章封面必选')
@@ -33,7 +33,7 @@ exports.addArticle = async(req, res) => {
     })
 }
 
-exports.listArticle = async(req, res) => {
+exports.listArticle = async (req, res) => {
     const sql = `select a.id, a.title, a.pub_date, a.state, b.name as cate_name
                 from en_articles as a,en_article_cate as b 
                 where a.cate_id = b.id and a.cate_id = ifnull(?, a.cate_id)  and a.state = ifnull(?, a.state) and a.is_delete = 0  limit ?,?`
@@ -45,10 +45,12 @@ exports.listArticle = async(req, res) => {
         return res.cc(e)
     }
 
-    const countSql = 'select * from en_articles where is_delete = 0'
+    // bugfix: 之前这里没有添加过滤条件 state和cate_id，导致 文章列表的分页pageBox中查询总数不正确
+    const countSql = 'select count(*) as num from en_articles where is_delete = 0 and state = ifnull(?,state) and cate_id = ifnull(?,id)'
     let total = null
     try {
-        total = await db.queryByPromisify(countSql)
+        let [{ num }] = await db.queryByPromisify(countSql, [req.query.state || null, req.query.cate_id || null])
+        total = num
     } catch (e) {
         return res.cc(e)
     }
@@ -57,12 +59,12 @@ exports.listArticle = async(req, res) => {
         status: 0,
         msg: '获取文章列表成功',
         data: results,
-        total: total.length
+        total
     })
 
 }
 
-exports.delArticle = async(req, res) => {
+exports.delArticle = async (req, res) => {
     const sql = 'update en_articles set is_delete = 1 where id = ?'
 
     try {
@@ -81,7 +83,7 @@ exports.delArticle = async(req, res) => {
     })
 }
 
-exports.editArticle = async(req, res) => {
+exports.editArticle = async (req, res) => {
     // 手动校验上传的文件
     if (!req.file || req.file.fieldname !== 'cover_img') {
         return res.cc('文章封面必选')
@@ -110,7 +112,7 @@ exports.editArticle = async(req, res) => {
     })
 }
 
-exports.queryArticleDetail = async(req, res) => {
+exports.queryArticleDetail = async (req, res) => {
     const sql = 'select * from en_articles where id = ?'
 
     let result = []
