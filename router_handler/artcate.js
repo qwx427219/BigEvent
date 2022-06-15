@@ -1,7 +1,7 @@
 const db = require('../db/index')
 
 // 获取文章分类 处理函数
-exports.getArticleCates = async(req, res) => {
+exports.getArticleCates = async (req, res) => {
     const sql = 'select * from en_article_cate where is_delete = 0 order by id asc'
 
     let results = []
@@ -19,7 +19,7 @@ exports.getArticleCates = async(req, res) => {
 }
 
 // 新增文章分类 处理函数
-exports.addArticleCates = async(req, res) => {
+exports.addArticleCates = async (req, res) => {
     const sql = 'select * from en_article_cate where name = ? or alias = ?'
 
     let results = []
@@ -69,16 +69,23 @@ exports.addArticleCates = async(req, res) => {
 }
 
 // 根据ID删除文章分类 处理函数
-exports.deleteArticleById = async(req, res) => {
+exports.deleteArticleById = async (req, res) => {
     const sql = 'update en_article_cate set is_delete = 1 where id = ?'
 
-    let result = null
     try {
-        result = await db.queryByPromisify(sql, req.params.id)
+        let result = await db.queryByPromisify(sql, req.params.id)
 
         if (result.affectedRows !== 1) {
             return res.cc('删除文章分类失败1')
         }
+    } catch (e) {
+        return res.cc(e)
+    }
+
+    // bugfix: 当文章分类被删除了，则文章分类相关的文章也要被删除
+    const sql2 = 'update en_articles set is_delete = 1 where cate_id = ?'
+    try {
+        await db.queryByPromisify(sql2, req.params.id)
     } catch (e) {
         return res.cc(e)
     }
@@ -90,7 +97,7 @@ exports.deleteArticleById = async(req, res) => {
 }
 
 // 根据ID获取文章分类 处理函数
-exports.getArticleCateById = async(req, res) => {
+exports.getArticleCateById = async (req, res) => {
     const sql = 'select * from en_article_cate where id = ?'
 
     let result = []
@@ -112,7 +119,7 @@ exports.getArticleCateById = async(req, res) => {
 }
 
 // 根据ID更新文章分类 处理函数
-exports.updateCateById = async(req, res) => {
+exports.updateCateById = async (req, res) => {
     const sql = 'select * from en_article_cate where id != ? and (name = ? or alias = ?)'
 
     let results = []

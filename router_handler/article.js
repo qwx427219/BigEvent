@@ -51,7 +51,6 @@ exports.listArticle = async (req, res) => {
     try {
         let [{ num }] = await db.queryByPromisify(countSql, [req.query.state || null, req.query.cate_id || null])
         total = num
-        console.log(total)
     } catch (e) {
         return res.cc(e)
     }
