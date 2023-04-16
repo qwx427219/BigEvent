@@ -1,6 +1,16 @@
 const db = require('../db/index')
 const path = require('path')
 
+exports.addImg = async(req, res) => {
+	if (!req.file || req.file.fieldname !== 'block_img') {
+        return res.cc('博客图片必选')
+    }
+	
+	res.send({
+		location: path.join('/uploads', req.file.filename)
+	})
+}
+
 exports.addArticle = async (req, res) => {
     // 手动校验上传的文件
     if (!req.file || req.file.fieldname !== 'cover_img') {

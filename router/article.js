@@ -2,7 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 
-const { addArticle, listArticle, delArticle, editArticle, queryArticleDetail } = require('../router_handler/article')
+const { addArticle, listArticle, delArticle, editArticle, queryArticleDetail, addImg } = require('../router_handler/article')
 
 // 表单数据校验规则
 const expressJOI = require('@escook/express-joi')
@@ -15,6 +15,7 @@ const upload = multer({ dest: path.join(__dirname, '../uploads') })
 
 // 路由
 router.post('/add', upload.single('cover_img'), expressJOI(add_article_schema), addArticle)
+router.post('/add/img', upload.single('block_img'), addImg)
 router.get('/list', expressJOI(list_article_schema), listArticle)
 router.get('/delete/:id', expressJOI(del_article_schema), delArticle)
 router.post('/edit', upload.single('cover_img'), expressJOI(eidt_article_schema), editArticle)
